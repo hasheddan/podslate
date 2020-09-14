@@ -1,7 +1,10 @@
 (ns podslate.core
-  (:gen-class))
+  (:gen-class)
+  (:require [io.pedestal.http :as server]
+            [podslate.service :as service]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Server entrypoint."
   [& args]
-  (println "Hello, World!"))
+  (println "Starting Podslate...")
+  (server/start (service/run)))
